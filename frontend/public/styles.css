@@ -166,7 +166,9 @@ body {
 
 .profile-column {
   display: flex;
+  max-height: 600px;
   flex-direction: column;
+  justify-content: space-between;
   gap: 24px;
 }
 
@@ -288,7 +290,7 @@ body {
   border-radius: 22px;
   padding: 28px;
   box-shadow: 0 18px 45px rgba(31, 31, 31, 0.12);
-  min-height: 520px;
+  height: 600px;
 }
 
 .chat-header {
