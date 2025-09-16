@@ -96,6 +96,7 @@ body {
 }
 
 .prompt-input {
+  min-width: 50px;
   flex: 1;
   border: none;
   background: transparent;
