@@ -53,7 +53,7 @@ export const getUser = async (req, res) => {
     typeof name === "string" ? name.trim() : name !== undefined && name !== null ? String(name).trim() : "";
 
   if (!sanitizedName) {
-    res.sendStatus(404);
+    res.sendStatus(400);
     return;
   }
 
@@ -74,7 +74,7 @@ export const deleteUser = async (req, res) => {
     typeof name === "string" ? name.trim() : name !== undefined && name !== null ? String(name).trim() : "";
 
   if (!sanitizedName) {
-    res.sendStatus(204);
+    res.sendStatus(400);
     return;
   }
 
