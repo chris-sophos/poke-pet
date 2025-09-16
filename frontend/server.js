@@ -1,7 +1,6 @@
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import "dotenv/config";
 
 const app = express();
 
@@ -14,7 +13,7 @@ app.get("/placeholder.json", (_req, res) => {
 
 app.use(express.static("public"));
 
-const port = Number(process.env.PORT);
-app.listen(port, () => {
-  console.log(`Frontend @ http://localhost:${port}`);
+const PORT = 3221;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Frontend Server ready at http://localhost:${PORT}`);
 });
