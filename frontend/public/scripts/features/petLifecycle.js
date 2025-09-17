@@ -103,7 +103,7 @@ export async function applyPetDailyAdjustments({ appRoot, backendURL, user }) {
     }
   }
 
-  if (stageBefore < 3 && newStreak >= 7) {
+  if (stageBefore % 100 < 3 && newStreak >= 7) {
     stageAfter = stageBefore + 1;
     updates.stage = stageAfter;
     updates[TALKING_STREAK_FIELD] = 0;

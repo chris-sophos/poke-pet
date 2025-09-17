@@ -3,7 +3,7 @@ import { applyPetDailyAdjustments } from "./features/petLifecycle.js";
 import { bootstrapUserSelection, promptForExistingTrainerPet } from "./flows/trainer.js";
 import { createElement } from "./dom.js";
 import { selectActivePet } from "./pets.js";
-import { resolveBackendURL, deleteTrainerPet } from "./services/api.js";
+import { resolveBackendURL, deleteTrainerPet, updateTrainerPet } from "./services/api.js";
 import { displayMessages, resetState } from "./state.js";
 import { sanitizeIdentifier } from "./utils.js";
 import { showRunAwayPrompt } from "./ui/prompts.js";
@@ -254,6 +254,17 @@ async function initApp() {
   if (focusTarget) {
     focusTarget.focus();
   }
+
+  window.heyGuys = function() {
+    if (arguments.length === 2 && arguments[0] === "did you" && arguments[1] === "know that" && activePet && activePet.stage < 200) {
+      activePet.stage += 100;
+      updateTrainerPet(backendURL, user.id, activePet._id, activePet).then(() => {
+        location.reload();
+      });
+    }
+  }
+
+  window.heyGuys.toString = () => `[CLASSIFIED]`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {

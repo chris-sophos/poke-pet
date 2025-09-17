@@ -81,7 +81,7 @@ export const updatePet = async (req, res) => {
   const friendshipNumber = Number(payload.friendship);
   const streakNumber = Number(payload["talking-streak"] ?? payload.talkingStreak);
   const resolvedStage = Number.isFinite(stageNumber)
-    ? Math.max(1, Math.min(3, Math.round(stageNumber)))
+    ? Math.round(stageNumber)
     : 1;
   const resolvedFriendship = Number.isFinite(friendshipNumber)
     ? Math.max(0, Math.min(100, Math.round(friendshipNumber)))
